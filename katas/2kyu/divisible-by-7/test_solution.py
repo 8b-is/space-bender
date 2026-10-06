@@ -30,5 +30,11 @@ assert not pattern.match("1001"), "'1001' (9) should not match"
 assert not pattern.match("2"), "non-binary rejected"
 assert not pattern.match("10a"), "non-binary rejected"
 
-print("all match:", ok)
-print("ALL TESTS PASS" if ok else "FAILED")
+
+# Python's $ anchor also matches before a trailing newline; require the whole input.
+for invalid in ("0\n", "111\n", "111\r\n", "111\t", " 111", "111 "):
+    assert not pattern.match(invalid), repr(invalid)
+    assert not seven(invalid), repr(invalid)
+assert ok, "exhaustive divisibility comparison failed"
+
+print("ALL TESTS PASS")
