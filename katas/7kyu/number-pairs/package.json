@@ -1,0 +1,9 @@
+{
+  "name": "number-pairs-lc",
+  "private": true,
+  "type": "module",
+  "description": "Number Pairs — λ Calculus (Beta) kata verification harness",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}

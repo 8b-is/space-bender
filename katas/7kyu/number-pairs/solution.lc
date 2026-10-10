@@ -1,0 +1,36 @@
+# Number Pairs — λ Calculus (Beta)
+# purity: LetRec · numEncoding: Church
+
+# --- Church booleans ---
+true  = \ a b . a
+false = \ a b . b
+
+# --- Church numeral helpers ---
+pred   = \ n f x . n ( \ g h . h (g f) ) ( \ u . x ) ( \ u . u )
+iszero = \ n . n ( \ x . false ) true
+monus  = \ m n . n pred m            # truncated subtraction
+leq    = \ m n . iszero (monus m n)  # m <= n
+max    = \ m n . (leq m n) n m
+
+# --- pairs (used to extract a list's tail) ---
+pair = \ a b s . s a b
+fst  = \ p . p true
+snd  = \ p . p false
+
+# cons : a -> List a -> List a
+cons = \ h t c n . c h (t c n)
+
+# nil : List _
+nil = \ c n . n
+
+# foldr : (a -> z -> z) -> z -> List a -> z
+foldr = \ f z l . l f z
+
+# --- list deconstruction ---
+isnil = \ l . l ( \ h t . false ) true
+head  = \ l . l ( \ h t . h ) nil
+# state-threading fold (pred trick) : fold yields (tail, whole)
+tail  = \ l . fst ( l ( \ h a . pair (snd a) (cons h (snd a)) ) ( pair nil nil ) )
+
+# get-larger-numbers : List Number -> List Number -> List Number
+get-larger-numbers = \ x y . (isnil x) nil (cons (max (head x) (head y)) (get-larger-numbers (tail x) (tail y)))
