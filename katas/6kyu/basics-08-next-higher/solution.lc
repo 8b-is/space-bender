@@ -1,0 +1,23 @@
+# Basics 08: Find next higher number with same Bits (1's)
+# Codewars λ Calculus (Beta) · 6 kyu
+#   https://www.codewars.com/kata/5a6b80cb880385a8f7000089
+#
+# numEncoding: BinaryScott — little-endian Scott digits:
+#   n = \ end even odd . ...   LSB is the outermost constructor
+#   End = 0 · Even z = 2z · Odd z = 2z+1
+# Self-contained single term: valid under PureLC, Let and LetRec.
+#
+# Algorithm (LSB-first, counter-free Gosper walk):
+#   write x = 0^s 1^k 0 rest   (or 0^s 1^k End when x is all-ones above s)
+#   then nextHigher = 1^(k-1) 0^(s+1) 1 rest
+#                   = Odd^(k-1) ( Even^(s+1) ( Odd rest ) )
+#   phase1 (g1) skips trailing zeros, accumulating Even-wrappers (em
+#   starts with one Even so s trailing zeros end as s+1 Even-wraps)
+#   phase2 (g2) skips the ones-run, accumulating k-1 Odd-wrappers, then
+#   on the separating zero (or End) emits pend (em (O rest)).
+#   Recursion via the Z combinator — no top-level helpers, no direct
+#   self-reference, so the term is purity-agnostic.
+#
+# next-higher : Number -> Number
+
+next-higher = \ x . ( \ Zc . \ E . \ O . ( \ go2 . ( \ go1 . go1 x ( \ t . E t ) ) ( Zc ( \ g1 . \ z em . z 0 ( \ zr . g1 zr ( \ t . E ( em t ) ) ) ( \ zr . go2 zr ( \ t . t ) em ) ) ) ) ( Zc ( \ g2 . \ w pend em . w ( pend ( em ( O 0 ) ) ) ( \ zr . pend ( em ( O zr ) ) ) ( \ zr . g2 zr ( \ t . pend ( O t ) ) em ) ) ) ) ( \ f . ( \ x . f \ y . x x y ) ( \ x . f \ y . x x y ) ) ( \ z e s o . s z ) ( \ z e s o . o z )

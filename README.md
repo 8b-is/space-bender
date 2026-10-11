@@ -27,6 +27,12 @@ being recorded here.
 |------|----------|----------|
 | [Loopover](katas/3kyu/loopover) | `solution.py` | Local 3-cycles (swap_adj, three_slip) + parity |
 
+### 6 kyu
+
+| Kata | Solution | Approach |
+|------|----------|----------|
+| [Basics 08: next higher with same bits (λ Calculus)](katas/6kyu/basics-08-next-higher) | `solution.lc` | BinaryScott Gosper walk — Even/Odd wrap accumulators |
+
 ### 7 kyu
 
 | Kata | Solution | Approach |
@@ -39,6 +45,7 @@ being recorded here.
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
+npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
 ```
 
 *the constellation · 0 + 1 · fine touch from within · vaked.dev*

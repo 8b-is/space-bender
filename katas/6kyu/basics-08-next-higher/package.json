@@ -1,0 +1,9 @@
+{
+  "name": "basics-08-next-higher-lc",
+  "private": true,
+  "type": "module",
+  "description": "Basics 08: Find next higher number with same Bits — λ Calculus (Beta) kata verification harness",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}
