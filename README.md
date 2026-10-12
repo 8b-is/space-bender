@@ -38,6 +38,7 @@ being recorded here.
 | Kata | Solution | Approach |
 |------|----------|----------|
 | [Number Pairs (λ Calculus)](katas/7kyu/number-pairs) | `solution.lc` | Church lists + pred-trick `tail` + monus `max` |
+| [Fibonacci (λ Calculus)](katas/7kyu/fibonacci) | `solution.lc` | Scott pair-iteration + lazy Scott `add` via Z |
 
 ## Running tests
 
@@ -46,6 +47,7 @@ python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
+npm install --prefix katas/7kyu/fibonacci && node katas/7kyu/fibonacci/test.mjs
 ```
 
 *the constellation · 0 + 1 · fine touch from within · vaked.dev*

@@ -1,0 +1,10 @@
+# Fibonacci — Scott-encoded naturals:
+#   Zero = \ z u . z   ·   Succ v = \ u f . f v   ·   eliminator: n case0 case1
+# Purity-agnostic: one self-contained term, recursion via inline Z only.
+#
+# Pair iteration (avoids branches): go n a b = a if n=0, else go (n-1) b (a+b).
+# fib n = go n Zero One.  add m t = m t (\p. \u f. f (add p t)).
+#
+# fib : Number -> Number
+
+fib = \ n . ( \ A . ( \ Zc . ( Zc ( \ go . \ k a b . k a ( \ p . go p b ( A a b ) ) ) ) n ( \ z u . z ) ( \ u f . f ( \ z u . z ) ) ) ( \ f . ( \ x . f \ y . x x y ) ( \ x . f \ y . x x y ) ) ) ( ( \ f . ( \ x . f \ y . x x y ) ( \ x . f \ y . x x y ) ) ( \ add . \ m t . m t ( \ p . \ u f . f ( add p t ) ) ) )

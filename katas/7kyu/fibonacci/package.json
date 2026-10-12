@@ -1,0 +1,9 @@
+{
+  "name": "fibonacci-lc",
+  "private": true,
+  "type": "module",
+  "description": "Fibonacci — λ Calculus (Beta) kata verification harness",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}
