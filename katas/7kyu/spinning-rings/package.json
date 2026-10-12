@@ -1,0 +1,9 @@
+{
+  "name": "spinning-rings-lc",
+  "private": true,
+  "type": "module",
+  "description": "Spinning Rings — λ Calculus (Beta) kata verification harness",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}
