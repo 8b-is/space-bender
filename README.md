@@ -41,6 +41,12 @@ being recorded here.
 | [Fibonacci (λ Calculus)](katas/7kyu/fibonacci) | `solution.lc` | Scott pair-iteration + lazy Scott `add` via Z |
 | [Spinning Rings (λ Calculus)](katas/7kyu/spinning-rings) | `solution.lc` | Scott ring-state walk (decw/incw) + Z structural eq |
 
+### Kumite
+
+| Kata | Solution | Approach |
+|------|----------|----------|
+| [Finding the duplicate number (Haxe)](katas/kumite/finding-duplicate-number) | `solution.hx` | Single O(n) seen-map pass vs length-branched baseline |
+
 ## Running tests
 
 ```bash
