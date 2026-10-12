@@ -1,8 +1,8 @@
 import { readFileSync } from "fs";
 import { compile, configure, toInt, fromInt } from "@codewars/lambda-calculus";
 
-// bare stub → platform defaults: Church numerals, PureLC (which enforces closed terms)
-configure({ purity: "PureLC", numEncoding: "Church" });
+// platform config (confirmed by its runtime error): numEncoding: Scott, purity default PureLC
+configure({ purity: "PureLC", numEncoding: "Scott" });
 
 const code = readFileSync(new URL("./solution.lc", import.meta.url), "utf8");
 const sol = compile(code);

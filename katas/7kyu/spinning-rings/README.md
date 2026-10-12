@@ -4,30 +4,38 @@
 (λ Calculus / Beta, by marbiru) — two rings start aligned on 0; the inner
 spins clockwise (decreasing, wrapping `0 → innerMax`), the outer counter-clockwise
 (increasing, wrapping `outerMax → 0`). Return the first move count ≥ 1 where both
-tops show the same number. Config: bare stub, no encodings/purity lines →
-platform defaults `Church` + `PureLC`; the solution is a single closed term
-(inline Z), so it also runs under Let and LetRec.
+tops show the same number.
+
+Config: the stub carries no encodings/purity lines, but the platform runs
+`numEncoding: Scott` (revealed by its runtime error on a Church result);
+purity defaults to PureLC. The solution is a single closed term (inline Z),
+so it also runs under Let and LetRec.
 
 ## Solution
 
 Direct state iteration — after 1 move the tops are `(innerMax, 1)`; then:
 
 ```
-go m i o  =  m                        if i = o
-             go (m+1) (decw i) (incw o)   otherwise
+go m i o  =  m                           if i = o
+             go (m+1) (decw i) (incw o)  otherwise
 
-decw i = if i = 0 then innerMax else i - 1   -- inner spins down, wraps to max
-incw o = if o = outerMax then 0 else o + 1   -- outer spins up, wraps to 0
+decw i = if i = 0 then innerMax else pred i   -- inner spins down, wraps to max
+incw o = if o = outerMax then 0 else succ o   -- outer spins up, wraps to 0
 ```
 
-Church helpers: `iszero n = n (K false) true`, predecessor via the standard
-pair-walk `n (\g k. k (g f)) (\k. x) (\k. k)`, monus `m ⊖ n = n pred m`,
-equality as both moni zero. Recursion via the **Z combinator inlined** (no
-bare `Z` in the prelude); everything is bound — PureLC-safe.
+**Scott naturals**: `Zero = \ z u . z`, `Succ v = \ u f . f v`; the
+eliminator is the two-case application `n case0 case1`.
+
+- `iszero n = n TRUE ( \ v . FALSE )`
+- `pred n = n Zero ( \ v . v )` — O(1) eliminator, no unary walk
+- `eq` via **inline Z**: `m` zero-case → `iszero n`; `m (Succ v)`-case →
+  `n FALSE ( \ w . eq v w )`
+- recursion in `go` also via inline Z (no bare `Z` exists in the prelude);
+  everything is bound — PureLC-safe.
 
 Worst case is bounded by `lcm(innerMax+1, outerMax+1)` (the both-tops-zero
-re-sync), so the unary walk grows with ring sizes — fine for the kata's
-modest test inputs, though values near 50 already cost seconds.
+re-sync); Scott's O(1) pred keeps even edge inputs (e.g. `(50,1) = 101`
+moves) in the tens of milliseconds.
 
 ## Verified
 

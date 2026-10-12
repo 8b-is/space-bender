@@ -2,10 +2,13 @@
 # Inner (size im+1) decrements with wrap: 0 -> im. Outer (size om+1) increments
 # with wrap: om -> 0. State after 1 move is (im, 1); loop m, inner, outer until equal.
 #
-# Bare stub (no numEncoding/purity lines) → platform defaults: Church + PureLC.
-# Single closed term, recursion via inline Z — works under PureLC/Let/LetRec alike.
-# Church helpers: iszero n = n (K false) true; pred via pair-walk; monus = n pred m;
-# eq = both moni zero; decw i = if i=0 then im else pred i; incw o = if o=om then 0 else succ o.
+# Config (from the platform's own error): numEncoding: Scott, no purity line.
+# Single closed term, recursion via inline Z — runs under PureLC/Let/LetRec alike.
+#
+# Scott naturals: Zero = \ z u . z  ·  Succ v = \ u f . f v  ·  eliminator: n case0 case1
+#   iszero n = n TRUE ( \ v . FALSE )   ·   pred n = n Zero ( \ v . v )   ·   succ n = \ n u f . f n
+#   eq via inline Z: m ZERO-case -> iszero n; m (Succ v)-case -> n FALSE ( \ w . eq v w )
+#   decw i = if i=0 then im else pred i   ·   incw o = if o=om then 0 else succ o
 #
 # spinning-rings : Number -> Number -> Number
-spinning-rings = \ im om . ( \ iszero and succ Zc pred . ( \ sub . ( \ eq . ( \ decw . ( \ incw . ( \ go . ( Zc go ) 1 im 1 ) ( \ go m i o . ( eq i o ) m ( go ( succ m ) ( decw i ) ( incw o ) ) ) ) ( \ o . ( eq o om ) 0 ( succ o ) ) ) ( \ i . ( iszero i ) im ( pred i ) ) ) ( \ m n . and ( iszero ( sub m n ) ) ( iszero ( sub n m ) ) ) ) ( \ m n . n pred m ) ) ( \ n . n ( \ u a b . b ) ( \ a b . a ) ) ( \ p q . p q p ) ( \ n f x . f ( n f x ) ) ( \ f . ( \ x . f ( x x ) ) ( \ x . f ( x x ) ) ) ( \ n f x . n ( \ g k . k ( g f ) ) ( \ k . x ) ( \ k . k ) )
+spinning-rings = \ im om . ( \ Zc ZERO TRUE FALSE . ( \ iszero succ pred . ( \ eq . ( \ decw . ( \ incw . ( \ go . ( Zc go ) 1 im 1 ) ( \ go m i o . ( eq i o ) m ( go ( succ m ) ( decw i ) ( incw o ) ) ) ) ( \ o . ( eq o om ) ZERO ( succ o ) ) ) ( \ i . ( iszero i ) im ( pred i ) ) ) ( Zc ( \ e m n . m ( n TRUE ( \ w . FALSE ) ) ( \ v . n FALSE ( \ w . e v w ) ) ) ) ) ( \ n . n TRUE ( \ v . FALSE ) ) ( \ n u f . f n ) ( \ n . n ZERO ( \ v . v ) ) ) ( \ f . ( \ x . f ( x x ) ) ( \ x . f ( x x ) ) ) ( \ z u . z ) ( \ a b . a ) ( \ a b . b )

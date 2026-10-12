@@ -39,7 +39,7 @@ being recorded here.
 |------|----------|----------|
 | [Number Pairs (λ Calculus)](katas/7kyu/number-pairs) | `solution.lc` | Church lists + pred-trick `tail` + monus `max` |
 | [Fibonacci (λ Calculus)](katas/7kyu/fibonacci) | `solution.lc` | Scott pair-iteration + lazy Scott `add` via Z |
-| [Spinning Rings (λ Calculus)](katas/7kyu/spinning-rings) | `solution.lc` | Church ring-state walk (decw/incw) + monus-eq via Z |
+| [Spinning Rings (λ Calculus)](katas/7kyu/spinning-rings) | `solution.lc` | Scott ring-state walk (decw/incw) + Z structural eq |
 
 ## Running tests
 
