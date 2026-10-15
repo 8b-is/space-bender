@@ -24,6 +24,9 @@ for (n in nums) {
 return null;
 ```
 
+Method name mirrors the stub/test exactly (`findduplicatenumber` — the
+platform's call sites are case-sensitive).
+
 Same asymptotics as the baseline's best branch, a quarter of the code,
 no length-dependent behavior to get wrong. Returns the first value
 encountered twice (the tests contain exactly one duplicate each, so
@@ -34,9 +37,10 @@ which-duplicate ordering never matters).
 `haxe` is not installed locally, so the algorithm was transliterated to
 Python and run against the three utest cases (`[1,2,3,3,5] → 3`,
 44-element array → `22`, 95-element array → `234`) — all pass. The
-platform's utest suite (`test.hx`-style asserts in the kata) is the
-authoritative run.
+platform's utest suite is mirrored verbatim in `test.hx` (the
+authoritative run is on Codewars — `haxe` is not installed locally).
 
 ## Files
 
 - `solution.hx` — the solution
+- `test.hx` — mirror of the platform's utest suite

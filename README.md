@@ -2,12 +2,13 @@
 
 Codewars katas + verified solutions — the space bender.
 
-A curated collection of solved katas, each with its solution, a
-`README.md` explaining the approach, and tests that verify the solution
-exhaustively (Python suites for the Python katas, a Node harness against
-the real `@codewars/lambda-calculus` compiler for the λ Calculus ones).
-Solutions are written from first principles and verified locally before
-being recorded here.
+A curated collection of solved katas, each with its solution. The suites
+listed under **Running tests** verify the solutions exhaustively — Python
+test files for the Python katas, a Node harness against the real
+`@codewars/lambda-calculus` compiler for the λ Calculus ones — and
+per-kata `README.md` files document the approach (newer katas ship one
+by default). Solutions are written from first principles and verified
+before being recorded here.
 
 ## Katas
 
@@ -26,6 +27,7 @@ being recorded here.
 | Kata | Solution | Approach |
 |------|----------|----------|
 | [Loopover](katas/3kyu/loopover) | `solution.py` | Local 3-cycles (swap_adj, three_slip) + parity |
+| [Assembling a Circular Genome](katas/3kyu/circular-genome) | `solution.py` | Greedy suffix-prefix merge + circular wrap |
 
 ### 6 kyu
 
@@ -52,6 +54,7 @@ being recorded here.
 ```bash
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
+python3 katas/3kyu/circular-genome/test_solution.py
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
 npm install --prefix katas/7kyu/fibonacci && node katas/7kyu/fibonacci/test.mjs
