@@ -6,9 +6,8 @@ A curated collection of solved katas, each with its solution. The suites
 listed under **Running tests** verify the solutions exhaustively — Python
 test files for the Python katas, a Node harness against the real
 `@codewars/lambda-calculus` compiler for the λ Calculus ones — and
-per-kata `README.md` files document the approach (newer katas ship one
-by default). Solutions are written from first principles and verified
-before being recorded here.
+per-kata `README.md` files document the approach. Solutions are written
+from first principles and verified before being recorded here.
 
 ## Katas
 
@@ -16,10 +15,10 @@ before being recorded here.
 
 | Kata | Solution | Approach |
 |------|----------|----------|
-| [Evaluate mathematical expression](katas/2kyu/evaluate-math) | `calc.py` | Recursive descent parser, no eval |
-| [Simpler Interactive Interpreter](katas/2kyu/simpler-interpreter) | `interpreter.py` | Recursive descent REPL with variable state |
-| [Regular Expression parser](katas/2kyu/regexp-parser) | `regexp.py` | Recursive descent AST builder |
-| [Prime Streaming (NC-17)](katas/2kyu/prime-streaming) | `primes.py` | Segmented sieve, C-level bytearray + regex |
+| [Evaluate mathematical expression](katas/2kyu/evaluate-math) | `solution.py` | Recursive descent parser, no eval |
+| [Simpler Interactive Interpreter](katas/2kyu/simpler-interpreter) | `solution.py` | Recursive descent REPL with variable state |
+| [Regular Expression parser](katas/2kyu/regexp-parser) | `solution.py` | Recursive descent AST builder |
+| [Prime Streaming (NC-17)](katas/2kyu/prime-streaming) | `solution.py` | Segmented sieve, C-level bytearray + regex |
 | [Divisible by 0b111 (7)](katas/2kyu/divisible-by-7) | `solution.py` | 7-state DFA → state elimination → regex |
 
 ### 3 kyu
@@ -52,6 +51,10 @@ before being recorded here.
 ## Running tests
 
 ```bash
+python3 katas/2kyu/evaluate-math/test_solution.py
+python3 katas/2kyu/simpler-interpreter/test_solution.py
+python3 katas/2kyu/regexp-parser/test_solution.py
+python3 katas/2kyu/prime-streaming/test_solution.py
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 python3 katas/3kyu/circular-genome/test_solution.py
