@@ -50,6 +50,15 @@ from first principles and verified before being recorded here.
 
 ## Running tests
 
+With the paired [`8b-is/codewars-cli`](https://github.com/8b-is/codewars-cli) (`codewars` / `cw`):
+
+```bash
+codewars bender list --live   # list all katas enriched live via Codewars API v1
+codewars bender test          # run all Python + λ Calculus verification suites
+```
+
+Or directly per kata:
+
 ```bash
 python3 katas/2kyu/evaluate-math/test_solution.py
 python3 katas/2kyu/simpler-interpreter/test_solution.py
