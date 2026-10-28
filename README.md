@@ -41,6 +41,7 @@ from first principles and verified before being recorded here.
 | [Number Pairs (λ Calculus)](katas/7kyu/number-pairs) | `solution.lc` | Church lists + pred-trick `tail` + monus `max` |
 | [Fibonacci (λ Calculus)](katas/7kyu/fibonacci) | `solution.lc` | Scott pair-iteration + lazy Scott `add` via Z |
 | [Spinning Rings (λ Calculus)](katas/7kyu/spinning-rings) | `solution.lc` | Scott ring-state walk (decw/incw) + Z structural eq |
+| [Odds and Evens: Addition (Idris)](katas/7kyu/odds-and-evens-addition) | `solution.idr` | Parity-type induction; `plusSuccRightSucc` bridge for `oddPlusOdd` |
 
 ### Kumite
 
@@ -62,6 +63,7 @@ npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/tes
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
 npm install --prefix katas/7kyu/fibonacci && node katas/7kyu/fibonacci/test.mjs
 npm install --prefix katas/7kyu/spinning-rings && node katas/7kyu/spinning-rings/test.mjs
+idris2 --check katas/7kyu/odds-and-evens-addition/test.idr
 ```
 
 *the constellation · 0 + 1 · fine touch from within · vaked.dev*
