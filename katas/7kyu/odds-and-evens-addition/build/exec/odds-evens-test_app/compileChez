@@ -1,1 +1,0 @@
-(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/Users/wraith/source/8b-is/space-bender/katas/7kyu/odds-and-evens-addition/build/exec/odds-evens-test_app/odds-evens-test.ss"))
