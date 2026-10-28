@@ -66,4 +66,19 @@ npm install --prefix katas/7kyu/spinning-rings && node katas/7kyu/spinning-rings
 idris2 --check katas/7kyu/odds-and-evens-addition/test.idr
 ```
 
+## Platform ledger (hookbot)
+
+`LEDGER.md` records katas whose solutions **Codewars itself** accepted. It
+is written by [8b-is/codewars-cli](https://github.com/8b-is/codewars-cli)
+when a Codewars Hookbot webhook fires:
+
+```bash
+codewars webhook --record --commit --backfill --user szepnapot
+```
+
+Each match appends a ledger row and a `**Platform:** PASS` line to the
+kata's README, then commits (`platform: <slug> verified on Codewars by
+<user> (hookbot)`). Idempotent — re-runs record nothing new. Hookbot needs
+a publicly reachable URL (tunnel when local) plus a shared secret.
+
 *the constellation · 0 + 1 · fine touch from within · vaked.dev*
