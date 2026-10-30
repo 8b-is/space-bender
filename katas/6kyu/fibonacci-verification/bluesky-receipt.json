@@ -1,0 +1,38 @@
+{
+  "kataSlug": "fibonacci-verification",
+  "tier": "6kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T08:21:44Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dycuzze2a",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dycuzze2a",
+      "cid": "bafyreifxabw46xbxpbzg4zqgqd2stlz7xumc7iyr76taai4rclkgonswda",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dycuzze2a",
+      "text": "🐚 ELI5 Kata · Program Verification #2: Fibonacci (Coq, 6 kyu)\n\nNaive fib(n) branches into 2^n calls, while fib2(n) = fib_aux 0 1 n walks in O(n) with a 2-number sliding window. How do we prove fib2 n = fib n?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/6kyu/fibonacci-verification"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dyd5z4u2a",
+      "cid": "bafyreiejbf5wpzwiz2obbunmgvskixrn2xdaiepojqz63rs7nbc4sxpeti",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dyd5z4u2a",
+      "text": "🪟 ELI5 Step 1 (Why Direct Induction Gets Stuck):\n\nIf you induct directly on fib_aux 0 1 n, the very first step changes (0, 1) into (1, 1), then (1, 2), then (2, 3)!\nYour induction hypothesis only knows about (0, 1), so it can't match (1, 1)."
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dydkkam22",
+      "cid": "bafyreiffvrm3yiq2hkgpcdtulluyxcvommjc6h3nloamlzh2y43zzo7cpq",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dydkkam22",
+      "text": "🔑 ELI5 Step 2 (The Sliding Window Invariant):\n\nGeneralize the window to ANY adjacent Fibonacci pair (fib k, fib (S k)):\n`fib_aux (fib k) (fib (S k)) n = fib (n + k)`!\nOne step shifts `(fib k, fib (S k))` to `(fib (S k), fib (S (S k)))` — matching `IHn (S k)`!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dydtyhl2q",
+      "cid": "bafyreihbn3di4lktkkpric5otq6debtpjb77sr2lgxfftx2u5zxjpkc6be",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dydtyhl2q",
+      "text": "✅ Plugging in k = 0 gives fib_aux (fib 0) (fib 1) n = fib (n + 0) = fib n with 0 axioms!\n\nCoq: https://github.com/8b-is/space-bender/blob/main/katas/6kyu/fibonacci-verification/solution.v\nRepo: https://github.com/8b-is/space-bender\n\n#Coq #HoTT #Codewars #ELI5"
+    }
+  ]
+}

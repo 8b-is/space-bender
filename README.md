@@ -33,6 +33,8 @@ from first principles and verified before being recorded here.
 | Kata | Solution | Approach |
 |------|----------|----------|
 | [Basics 08: next higher with same bits (λ Calculus)](katas/6kyu/basics-08-next-higher) | `solution.lc` | BinaryScott Gosper walk — Even/Odd wrap accumulators |
+| [A+A=B+B so A=B? Prove it! (Coq)](katas/6kyu/a-plus-a-equals-b-plus-b) | `solution.v` | Double structural induction + `add_succ_r` + `inversion` (`Closed under the global context`) |
+| [Program Verification #2: Fibonacci numbers (Coq)](katas/6kyu/fibonacci-verification) | `solution.v` | Generalized window invariant `fib_aux (fib k) (fib (S k)) n = fib (n + k)` |
 
 ### 7 kyu
 
@@ -69,6 +71,8 @@ python3 katas/2kyu/prime-streaming/test_solution.py
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 python3 katas/3kyu/circular-genome/test_solution.py
+python3 katas/6kyu/a-plus-a-equals-b-plus-b/test_solution.py
+python3 katas/6kyu/fibonacci-verification/test_solution.py
 python3 katas/7kyu/google-interview/test_solution.py
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs

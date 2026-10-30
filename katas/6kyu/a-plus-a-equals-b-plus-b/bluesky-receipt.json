@@ -1,0 +1,38 @@
+{
+  "kataSlug": "a-plus-a-equals-b-plus-b",
+  "tier": "6kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T08:17:31Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dqrzcqy2r",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dqrzcqy2r",
+      "cid": "bafyreiau5y2wy3yc6as2uofsgnp3ifncn6g6qahb2ulvi4iiavrttv5o5e",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dqrzcqy2r",
+      "text": "⚖️ ELI5 Kata · A+A = B+B → A = B (Coq, 6 kyu)\n\nImagine two kids with identical twin stacks of LEGO bricks: Alice has A+A bricks and Bob has B+B. If their total towers are equal height, must A equal B?\n\nCoq proof: https://github.com/8b-is/space-bender/tree/main/katas/6kyu/a-plus-a-equals-b-plus-b"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dqsdku62w",
+      "cid": "bafyreifu4ejsj2ubnuiqjiroydxowmdyre53bkehx5fnmzvujejinoxpd4",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dqsdku62w",
+      "text": "🧱 ELI5 Step 1 (Peeling 2 Bricks at a Time):\n\nIn Peano arithmetic, numbers are built from 0 and S (\"one more brick\").\nIf Alice has 0 bricks and Bob has at least 1 (`S b`), `0 = S (...)` is impossible (`discriminate H`)!\nIf both have 0, `0 = 0` (`reflexivity`)!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dqsluch2j",
+      "cid": "bafyreibjqbme2dt2zqussvwhq5pxxn76wouxmkanqj76i5t7muyuvawbay",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dqsluch2j",
+      "text": "🔄 ELI5 Step 2 (The S(a)+S(a) Twist):\n\nWhat if both have at least 1 brick (`S a` and `S b`)?\n`(S a) + (S a)` simplifies on the left to `S (a + S a)`.\nOur helper lemma `add_succ_r` pulls the second `S` out to the front: `S (S (a + a)) = S (S (b + b))`!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3dqsu5uz2p",
+      "cid": "bafyreigarovihu6sdz4xc5krcgf67mppvsm5p7zgj6p3bsrb5mgzxsrdkq",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3dqsu5uz2p",
+      "text": "✅ Peeling off both outer `S` bricks (`inversion H`) gives `a + a = b + b`, so induction (`IHa`) seals it with 0 axioms!\n\nCoq: https://github.com/8b-is/space-bender/blob/main/katas/6kyu/a-plus-a-equals-b-plus-b/solution.v\nRepo: https://github.com/8b-is/space-bender\n\n#Coq #HoTT #Codewars #ELI5"
+    }
+  ]
+}
