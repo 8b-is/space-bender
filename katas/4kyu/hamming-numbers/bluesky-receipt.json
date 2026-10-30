@@ -1,0 +1,38 @@
+{
+  "kataSlug": "hamming-numbers",
+  "tier": "4kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T12:41:29Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3siseu362n",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3siseu362n",
+      "cid": "bafyreih5p2obsi4iix4t2xao6342nx5dbgahzaeuigerr4x4hdqt35v5f4",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3siseu362n",
+      "text": "⚙️ ELI5 Kata · Hamming Numbers (NASM x86-64, 4 kyu)\n\nHamming numbers use only prime factors 2, 3, 5 (2^i·3^j·5^k): 1, 2, 3, 4, 5, 6, 8, 9, 10, 12...\nHow do we compute all 13,282 64-bit Hamming numbers in 141 bytes of NASM?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/4kyu/hamming-numbers"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3sisn3w22k",
+      "cid": "bafyreifhqstltd7ombn6arxzn45n2qgflkomirbf3qeojyps6tqkn3wn2q",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3sisn3w22k",
+      "text": "🏭 ELI5 Step 1 (Three Conveyor Belts):\n\nImagine 3 machines reading already-found Hamming numbers:\n• Machine 2 doubles them (`i2`)\n• Machine 3 triples them (`i3`)\n• Machine 5×5s them (`i5`)\nEach step picks `min(x2, x3, x5)` and steps whichever belt(s) tied for smallest!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3sisvdct2m",
+      "cid": "bafyreigq4spctbsmkgp4hb2cwna4tgcnuykbongct62q22sgbybjrjgvf4",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3sisvdct2m",
+      "text": "🚀 ELI5 Step 2 (Zero `mul` Instructions in x86-64):\n\nIn NASM we never even call `mul`!\n• `×2`: `add r10, r10`\n• `×3`: `lea r11, [r11 + r11*2]`\n• `×5`: `lea rdi, [rdi + rdi*4]`\n• `min`: branchless `cmovb` (unsigned `\u003c`, crucial once values pass 2^63)!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3sit5olc2r",
+      "cid": "bafyreigncapq3f75usidnkx63ejafxpgspujwx67bbo3yb3gudubkcrqiq",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3sit5olc2r",
+      "text": "✅ Cached in `.bss` on call #1, so all 13,282 calls take 6 instructions (`hamming(13282) = 18432000000000000000`)!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/4kyu/hamming-numbers/solution.asm\nRepo: https://github.com/8b-is/space-bender\n\n#NASM #x86_64 #Codewars #ELI5"
+    }
+  ]
+}

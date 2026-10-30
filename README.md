@@ -29,6 +29,12 @@ from first principles and verified before being recorded here.
 | [Loopover](katas/3kyu/loopover) | `solution.py` | Local 3-cycles (swap_adj, three_slip) + parity |
 | [Assembling a Circular Genome](katas/3kyu/circular-genome) | `solution.py` | Greedy suffix-prefix merge + circular wrap |
 
+### 4 kyu
+
+| Kata | Solution | Approach |
+|------|----------|----------|
+| [Hamming Numbers (NASM)](katas/4kyu/hamming-numbers) | `solution.asm` | 3-pointer DP in `.bss` (`cmovb` + `lea *3/*5`) + 6-insn $O(1)$ lookup |
+
 ### 6 kyu
 
 | Kata | Solution | Approach |
@@ -72,6 +78,7 @@ python3 katas/2kyu/prime-streaming/test_solution.py
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 python3 katas/3kyu/circular-genome/test_solution.py
+python3 katas/4kyu/hamming-numbers/test_solution.py
 python3 katas/6kyu/a-plus-a-equals-b-plus-b/test_solution.py
 python3 katas/6kyu/fibonacci-verification/test_solution.py
 python3 katas/7kyu/google-interview/test_solution.py
