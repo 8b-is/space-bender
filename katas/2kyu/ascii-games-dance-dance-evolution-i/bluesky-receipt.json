@@ -1,0 +1,38 @@
+{
+  "kataSlug": "ascii-games-dance-dance-evolution-i",
+  "tier": "2kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T23:49:05Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4xskozig2b",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4xskozig2b",
+      "cid": "bafyreihbx7naveo4jaydq5czhubyi7ddihwhbvvh6pannojgljvmd6gnjy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4xskozig2b",
+      "text": "🕺 ELI5 Kata · Dance Dance Evolution I (Rust, 2 kyu)\n\nOn an arrow grid (←↖↑↗→↘↓↙), each step must stay ≤90° from BOTH your current \u0026 target arrows. How do we find the longest cycle back to S?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/2kyu/ascii-games-dance-dance-evolution-i"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4xskxmpt2r",
+      "cid": "bafyreicv3tfz2pcyyrfgf3zb3d26odv24fjh5kwlte2ygqke4rcf4qpjka",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4xskxmpt2r",
+      "text": "🧭 ELI5 Step 1 (The 90° Compass Rule):\n\nNumber the 8 directions 0..7 around the compass (45° per step).\nTwo directions are ≤ 90° apart iff `diff \u003c= 2 || diff \u003e= 6`.\nWe precompile all valid transitions into 64-bit adjacency masks `out_mask[u]` \u0026 `in_mask[v]`!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4xslbcri2a",
+      "cid": "bafyreihtres5je3jplzchsjski5xxzk6e6sjdcduwvqj5obpavuexco4ta",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4xslbcri2a",
+      "text": "⚡ ELI5 Step 2 (Bidirectional Bitmask Pruning):\n\nAt each DFS state `(u, visited)`, hardware `trailing_zeros()` bit-scans flood-fill:\n1. `can_reach_s` backwards from `S` through unvisited tiles\n2. `reachable` forwards from `u` inside `can_reach_s`\nPruning dead ends \u0026 upper bounds in O(1)!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4xslkdrr2m",
+      "cid": "bafyreif7pwvfbomeemgqirc2s6sr5jp56xsbkwydhb7fsdgwb7vifr6giy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4xslkdrr2m",
+      "text": "✅ Verified across 100 random 5x5 mazes in ~26 ms in Rust!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/2kyu/ascii-games-dance-dance-evolution-i/solution.rs\nRepo: https://github.com/8b-is/space-bender\n\n#Rust #GraphTheory #Codewars #ELI5"
+    }
+  ]
+}

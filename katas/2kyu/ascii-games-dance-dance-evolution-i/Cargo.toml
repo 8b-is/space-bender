@@ -1,0 +1,7 @@
+[package]
+name = "ascii-games-dance-dance-evolution-i"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "solution.rs"

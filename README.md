@@ -29,6 +29,7 @@ from first principles and verified before being recorded here.
 | [Divisible by 0b111 (7)](katas/2kyu/divisible-by-7) | `solution.py` | 7-state DFA → state elimination → regex |
 | [Church Numerals - Prefix is Overrated (All Operations)](katas/2kyu/church-infix-all-ops) | `solution.lc` | Triple-role `d = \p. p A` + unified `U_x` continuation dispatch |
 | [NegaBinary (λ Calculus)](katas/2kyu/negabinary) | `solution.lc` | Base $-2$ Scott encoding + 1-step sign-flip unrolling + BinaryScott `divmod` (~0.73s) |
+| [ASCII Games: Dance Dance Evolution I (Rust)](katas/2kyu/ascii-games-dance-dance-evolution-i) | `solution.rs` | Precompiled `u64` adjacency bitmasks + bidirectional `trailing_zeros()` reachability pruning (~26 ms / 100 mazes) |
 
 ### 3 kyu
 
