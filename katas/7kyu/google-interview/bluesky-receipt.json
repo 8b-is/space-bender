@@ -1,0 +1,38 @@
+{
+  "kataSlug": "google-interview",
+  "tier": "7kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T07:06:22Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rkidoa2q",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz37rkidoa2q",
+      "cid": "bafyreiaa3qhgeaufrw6gdcb5vur36zq2dvvqasnzqn53e7yghnf7tcr72i",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rkidoa2q",
+      "text": "🌳 ELI5 Kata · Google Interview (Idris 1.3, 7 kyu)\n\nHold a binary tree up to a mirror: every left \u0026 right branch swaps places. Hold it up to a 2nd mirror and every branch is right back where it started!\n\nCode + proof: https://github.com/8b-is/space-bender/tree/main/katas/7kyu/google-interview"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz37rkrsfq2q",
+      "cid": "bafyreidlpbsgobc3aifqwi3t3wikrkieyi4pfxw3nh735mmnt3il25lmte",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rkrsfq2q",
+      "text": "🪞 ELI5 Step 1 (The Leaf):\n\nWhat happens to a single Leaf(x) at the tip of a branch when you flip it in a mirror?\nNothing! flipTree(Leaf x) = Leaf x.\n\nFlip it twice and it's still Leaf(x). In Idris 1.3, both sides simplify to Leaf(x), so `Refl` (\"same thing!\") proves the base case."
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz37rl34572n",
+      "cid": "bafyreibkmq4r75tdq4p2dhhl3gjq622epcjiqhulgx2jwksrmdmttzdd6a",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rl34572n",
+      "text": "🌿 ELI5 Step 2 (The Branch):\n\nFor Branch(x, L, R):\n• 1st flip swaps children → Branch(x, flip R, flip L)\n• 2nd flip swaps them back → Branch(x, flip(flip L), flip(flip R))\n\nBy induction, L \u0026 R bounce back to themselves, and `congBranch x (flipTreeSym l) (flipTreeSym r)` seals the proof!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz37rleqmd2p",
+      "cid": "bafyreihcc32alaw6csxhjbjmytzcj3gzn7joyws32sr4lfjdc24gtnt6we",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rleqmd2p",
+      "text": "✅ Totality checked (`%default total`) \u0026 verified across 1,370 binary trees!\n\nIdris 1.3 proof: https://github.com/8b-is/space-bender/blob/main/katas/7kyu/google-interview/solution.idr\nRepo: https://github.com/8b-is/space-bender\n\n#Idris #Codewars #TheoremProving #ELI5"
+    }
+  ]
+}

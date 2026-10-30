@@ -61,3 +61,5 @@ flipTreeSym (Branch x l r) = congBranch x (flipTreeSym l) (flipTreeSym r)
 
 - `solution.idr` — the Idris 1.3 `module P` proof
 - `test_solution.py` — structural & constructive identity-type verification suite
+- `bluesky-receipt.json` — live 4-post ELI5 educational Bluesky thread receipt ([root post on `@0xp3t3rl.bsky.social`](https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz37rkidoa2q))
+

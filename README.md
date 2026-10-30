@@ -54,8 +54,9 @@ from first principles and verified before being recorded here.
 With the paired [`8b-is/codewars-cli`](https://github.com/8b-is/codewars-cli) (`codewars` / `cw`):
 
 ```bash
-codewars bender list --live   # list all katas enriched live via Codewars API v1
-codewars bender test          # run all Python + λ Calculus verification suites
+codewars bender list --live          # list all katas enriched live via Codewars API v1
+codewars bender test                 # run all Python + λ Calculus + Idris verification suites
+codewars bender eli5 <slug>          # publish a 4-post ELI5 educational Bluesky thread with GitHub links
 ```
 
 Or directly per kata:
