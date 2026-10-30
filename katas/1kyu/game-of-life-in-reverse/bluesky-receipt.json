@@ -1,0 +1,38 @@
+{
+  "kataSlug": "game-of-life-in-reverse",
+  "tier": "1kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T23:34:59Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4wzdqt7h2m",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4wzdqt7h2m",
+      "cid": "bafyreidxrdb2ptx7kxojaj6ybfdjzdmlnh47ncagn4gougy3taxcpz4wmy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4wzdqt7h2m",
+      "text": "🧬 ELI5 Kata · Game of Life in Reverse (Factor, 1 kyu)\n\nStepping Conway's Game of Life forward is easy, but how do you run time BACKWARDS to find a predecessor (or prove a pattern is a Garden of Eden)?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/1kyu/game-of-life-in-reverse"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4wzdz4tz2n",
+      "cid": "bafyreibzhn6ilzuol4epe7euddlklfk6g4e44vvo7wtk67xex4fo765bcu",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4wzdz4tz2n",
+      "text": "🎯 ELI5 Step 1 (Interval Feasibility Bounds):\n\nEach cell tracks its placed live neighbors `c` and remaining unplaced neighbors `r`.\n• Need 1 next gen? Valid iff `c \u003c= 3` and `c + r + s \u003e= 3`\n• Need 0 next gen? Valid iff `c + s \u003c 3` or `c + r \u003e 3`\nDead branches prune immediately!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4wzebo5a2p",
+      "cid": "bafyreiasb7umqs65xdnq542frpx4bh5jz4gmqb6wwf4opego6yz2qg7wiy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4wzebo5a2p",
+      "text": "🪟 ELI5 Step 2 (4-Bit Sliding Frontier Profile DP):\n\nIn raster order, only the last `W + 1` cells still touch future cells.\nPacking `(min(c, 4), s)` into 4 bits per frontier cell gives one integer key cached in a Factor hash-set (`?adjoin`), never repeating dead-ends!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4wzejuti2p",
+      "cid": "bafyreibgefzysvdhbbyyn376fyaaxw6d3s3pl6qcbvj4ut6rmzxzj3wuqi",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4wzejuti2p",
+      "text": "✅ Verified across 55 grids + Garden of Eden in Factor 0.102!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/1kyu/game-of-life-in-reverse/solution.factor\nRepo: https://github.com/8b-is/space-bender\n\n#Factor #GameOfLife #Codewars #ELI5"
+    }
+  ]
+}

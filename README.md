@@ -16,6 +16,7 @@ from first principles and verified before being recorded here.
 | Kata | Solution | Approach |
 |------|----------|----------|
 | [Express number as sum of four squares (Rust)](katas/1kyu/express-number-as-sum-of-four-squares) | `solution.rs` | Double-sqrt cascade ($1024\text{b} \to 513\text{b} \to 258\text{b}$) + stack `U320` CIOS Montgomery + Cornacchia (~7.2 ms) |
+| [Game of Life in Reverse (Factor)](katas/1kyu/game-of-life-in-reverse) | `solution.factor` | Interval neighbor-bound pruning + $(W+1)$-cell 4-bit sliding frontier profile DP |
 
 ### 2 kyu
 
