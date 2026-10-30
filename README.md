@@ -11,6 +11,12 @@ from first principles and verified before being recorded here.
 
 ## Katas
 
+### 1 kyu
+
+| Kata | Solution | Approach |
+|------|----------|----------|
+| [Express number as sum of four squares (Rust)](katas/1kyu/express-number-as-sum-of-four-squares) | `solution.rs` | Double-sqrt cascade ($1024\text{b} \to 513\text{b} \to 258\text{b}$) + stack `U320` CIOS Montgomery + Cornacchia (~7.2 ms) |
+
 ### 2 kyu
 
 | Kata | Solution | Approach |
@@ -71,6 +77,7 @@ codewars bender eli5 <slug>          # publish a 4-post ELI5 educational Bluesky
 Or directly per kata:
 
 ```bash
+python3 katas/1kyu/express-number-as-sum-of-four-squares/test_solution.py
 python3 katas/2kyu/evaluate-math/test_solution.py
 python3 katas/2kyu/simpler-interpreter/test_solution.py
 python3 katas/2kyu/regexp-parser/test_solution.py

@@ -1,0 +1,38 @@
+{
+  "kataSlug": "express-number-as-sum-of-four-squares",
+  "tier": "1kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T13:58:35Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3wsnro7q22",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3wsnro7q22",
+      "cid": "bafyreia44uvbvznnotlenj7hzc7kw3je6osdum3uhyx6uk6suizcuegdsm",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3wsnro7q22",
+      "text": "🦀 ELI5 Kata · Sum of Four Squares (Rust, 1 kyu)\n\nLagrange proved every number N = a² + b² + c² + d².\nHow do we decompose huge 1024-bit numbers in ~0.25 ms each in pure Rust without GMP?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/1kyu/express-number-as-sum-of-four-squares"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3wso63oi22",
+      "cid": "bafyreidznok6oi6daj6ppmmvolnu6yg2xqejzdpi3gk3bn2yzg7r4thona",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3wso63oi22",
+      "text": "🪆 ELI5 Step 1 (The Double-Sqrt Cascade):\n\nInstead of testing 1024-bit primes:\n1. Pick `a ≈ √n` (512 bits) → remainder `r1 = n - a²` shrinks to ~513 bits!\n2. Pick `b ≈ √r1` (257 bits) → remainder `p = r1 - b²` shrinks to ~258 bits (`[u64; 5]`)!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3wsog4tb2a",
+      "cid": "bafyreihmpf4co5hjwvzekiswbqys4jjcu2cr2clffcbj6xxvj2vnvr7ega",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3wsog4tb2a",
+      "text": "⚡ ELI5 Step 2 (Parity Lock + Stack Montgomery):\n\nMatching `(a, b)` parities to `n mod 4` forces `p = n - a² - b² ≡ 1 (mod 4)` every time!\n96 small primes filter 85% of steps in `u32`, and stack `[u64; 5]` Montgomery Miller-Rabin + Cornacchia finds `c² + d² = p` with 0 heap allocs!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3wsor4vt2t",
+      "cid": "bafyreicx6yq5bnm2d5kxrycu5raz6wgljaixalnx2unwgzyfjctnghzwhi",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3wsor4vt2t",
+      "text": "✅ All 20×2^128 + 20×2^1024 random tests solved in ~7.2 ms total in Rust!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/1kyu/express-number-as-sum-of-four-squares/solution.rs\nRepo: https://github.com/8b-is/space-bender\n\n#Rust #NumberTheory #Codewars #ELI5"
+    }
+  ]
+}

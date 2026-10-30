@@ -1,0 +1,10 @@
+[package]
+name = "express-number-as-sum-of-four-squares"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "solution.rs"
+
+[dependencies]
+num = "0.4"
