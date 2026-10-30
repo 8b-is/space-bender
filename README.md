@@ -20,6 +20,7 @@ from first principles and verified before being recorded here.
 | [Regular Expression parser](katas/2kyu/regexp-parser) | `solution.py` | Recursive descent AST builder |
 | [Prime Streaming (NC-17)](katas/2kyu/prime-streaming) | `solution.py` | Segmented sieve, C-level bytearray + regex |
 | [Divisible by 0b111 (7)](katas/2kyu/divisible-by-7) | `solution.py` | 7-state DFA → state elimination → regex |
+| [Church Numerals - Prefix is Overrated (All Operations)](katas/2kyu/church-infix-all-ops) | `solution.lc` | Triple-role `d = \p. p A` + unified `U_x` continuation dispatch |
 
 ### 3 kyu
 
@@ -74,6 +75,7 @@ python3 katas/3kyu/circular-genome/test_solution.py
 python3 katas/6kyu/a-plus-a-equals-b-plus-b/test_solution.py
 python3 katas/6kyu/fibonacci-verification/test_solution.py
 python3 katas/7kyu/google-interview/test_solution.py
+npm install --prefix katas/2kyu/church-infix-all-ops && node katas/2kyu/church-infix-all-ops/test.mjs
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
 npm install --prefix katas/7kyu/fibonacci && node katas/7kyu/fibonacci/test.mjs

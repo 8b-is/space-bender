@@ -1,0 +1,38 @@
+{
+  "kataSlug": "church-infix-all-ops",
+  "tier": "2kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T09:07:18Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3gjsx4x622",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3gjsx4x622",
+      "cid": "bafyreicjfeq4iakguydwp7jnsga4x25zdoqbri4dbbwftekowwkilf6sla",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3gjsx4x622",
+      "text": "λ ELI5 Kata · Church Infix All Operations (2 kyu)\n\nHow do `2 a d d 3 = 5`, `5 s u b 4 = 1`, `3 m u l 4 = 12`, `5 d i v 2 = 2`, `7 m o d 4 = 3`, `2 p o w 3 = 8` work in λ-calculus where each letter is a combinator?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/2kyu/church-infix-all-ops"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3gjta52v24",
+      "cid": "bafyreifsglecoijtvvqai5gmaman5blupypueziqog2wutsvy2jp6gdesa",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3gjta52v24",
+      "text": "🧩 ELI5 Step 1 (How Infix Spelling Works):\n\nIn λ-calculus, `x c1 c2 c3 y` means `(((x c1) c2) c3) y`!\nSince `x` is a Church numeral (\"do c1 x times starting from c2\"), `x c1 c2` counts `x` steps, and then hands `x` to the 3rd letter `c3` and `y`!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3gjtjhvf24",
+      "cid": "bafyreigdugzymj3q5uheoawc22lprlbjhrwx55yu5muiexe2utz3mhjwxm",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3gjtjhvf24",
+      "text": "🎭 ELI5 Step 2 (The Triple Agent Letter `d`):\n\n11 of the 12 letters only sit in one slot (`c1`, `c2`, or `c3`).\nOnly `d` is a triple agent:\n• `0 a d d y` → `d d y = y`\n• `x d i v y` → `(d^x i) v y = div x y`\n• `x m o d y` → `(x m o) d y = mod x y`\n\n`d = \\p. p A` solves all 3!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz3gjts5hk2a",
+      "cid": "bafyreiglm6p5ugs55xak4zzwpdyezttiqp3nd4xbqp3feuhgmii5repfsm",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz3gjts5hk2a",
+      "text": "✅ Verified across 626 Church numeral tests (`0 pow 0 = 1`, `add`, `sub`, `mul`, `div`, `mod`, `pow`)!\n\nλ: https://github.com/8b-is/space-bender/blob/main/katas/2kyu/church-infix-all-ops/solution.lc\nRepo: https://github.com/8b-is/space-bender\n\n#LambdaCalculus #Codewars #ELI5"
+    }
+  ]
+}

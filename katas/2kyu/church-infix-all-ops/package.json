@@ -1,0 +1,8 @@
+{
+  "name": "church-infix-all-ops-test",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}

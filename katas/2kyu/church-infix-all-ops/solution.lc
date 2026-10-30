@@ -1,0 +1,47 @@
+# Church Numerals - Prefix is Overrated (All Operations) (2 kyu)
+# Encodings: Numbers = Church, Purity = Let
+
+# Basic combinators & Church arithmetic helpers
+I = \ x . x
+T = \ x y . x
+F = \ x y . y
+ZERO = F
+SUCC = \ n f z . f (n f z)
+PRED = \ n f z . n (\ g h . h (g f)) (\ u . z) I
+SUB = \ x y . y PRED x
+MUL = \ x y f . x (y f)
+POW = \ x y f z . y x f z
+ISZERO = \ n . n (\ _ . F) T
+
+# Bounded-fuel Euclidean division and modulo (fuel = SUCC x, lazy in recursive branch)
+DIV = \ x y . SUCC x (\ g n . ISZERO (SUB (SUCC n) y) ZERO (SUCC (g (SUB n y)))) (\ _ . ZERO) x
+MOD = \ x y . SUCC x (\ g n . ISZERO (SUB (SUCC n) y) n (g (SUB n y))) (\ _ . ZERO) x
+
+# Dual-role `d` machinery:
+# 1. `d d y` -> `A A y` -> `\ w . y w` = `y` (base case `0 a d d y = y`)
+# 2. `(x d i) v y` -> `S_x v y` -> `v B x y` = `DIV x y`
+# 3. `(x m o) d y` -> `d (\ _ . MOD) x y` = `MOD x y`
+K5_3 = \ x1 x2 x3 x4 x5 . x3
+B_GEN = \ self x1 x2 k u1 . u1 (self self) (SUCC k)
+B = B_GEN B_GEN
+A = \ x y w . x K5_3 (y w) y w
+
+# Single-letter infix combinators: a, b, d, i, l, m, o, p, s, u, v, w
+d = \ p . p A
+a = \ p d2 y . SUCC (p d2 y)
+i = \ u1 . u1 B ZERO
+v = \ _ x y . DIV x y
+
+# Unified state `U_x = \ c3 . c3 (\ _ . MOD) x` for sub, mul, mod, pow
+U0 = \ c3 . c3 (\ _ . MOD) ZERO
+USTEP = \ ustate c3 . c3 (\ _ . MOD) (SUCC (ustate (\ _ x . x)))
+
+u = U0
+o = U0
+s = USTEP
+m = USTEP
+p = USTEP
+
+b = \ _ x y . SUB x y
+l = \ _ x y . MUL x y
+w = \ _ x y . POW x y
