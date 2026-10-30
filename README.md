@@ -41,6 +41,7 @@ from first principles and verified before being recorded here.
 | [Number Pairs (λ Calculus)](katas/7kyu/number-pairs) | `solution.lc` | Church lists + pred-trick `tail` + monus `max` |
 | [Fibonacci (λ Calculus)](katas/7kyu/fibonacci) | `solution.lc` | Scott pair-iteration + lazy Scott `add` via Z |
 | [Spinning Rings (λ Calculus)](katas/7kyu/spinning-rings) | `solution.lc` | Scott ring-state walk (decw/incw) + Z structural eq |
+| [Google interview (Idris)](katas/7kyu/google-interview) | `solution.idr` | Structural induction + binary congruence `congBranch` (`%default total`) |
 
 ### Kumite
 
@@ -67,6 +68,7 @@ python3 katas/2kyu/prime-streaming/test_solution.py
 python3 katas/2kyu/divisible-by-7/test_solution.py
 python3 katas/3kyu/loopover/test_solution.py
 python3 katas/3kyu/circular-genome/test_solution.py
+python3 katas/7kyu/google-interview/test_solution.py
 npm install --prefix katas/7kyu/number-pairs && node katas/7kyu/number-pairs/test.mjs
 npm install --prefix katas/6kyu/basics-08-next-higher && node katas/6kyu/basics-08-next-higher/test.mjs
 npm install --prefix katas/7kyu/fibonacci && node katas/7kyu/fibonacci/test.mjs
