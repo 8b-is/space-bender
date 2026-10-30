@@ -1,0 +1,38 @@
+{
+  "kataSlug": "break-the-pieces",
+  "tier": "2kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T23:58:22Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4yd5zu6t22",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4yd5zu6t22",
+      "cid": "bafyreifkjov6gcor7i6cipzuvgt6pjq3hlbkouacrys7k77zw42wdzuyki",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4yd5zu6t22",
+      "text": "🧩 ELI5 Kata · Break the pieces (C++, 2 kyu)\n\nGiven an ASCII blueprint of nested rooms (+, -, |, spaces), how do we slice out every minimal closed room and heal its shared walls?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/2kyu/break-the-pieces"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4yd6ccsx2b",
+      "cid": "bafyreiejih24v2vrch2uiiozgk6tjxsiimuo6zco5igef3bnw76pc7ydsa",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4yd6ccsx2b",
+      "text": "🌊 ELI5 Step 1 (Pouring Water Outside):\n\nFirst, pad the blueprint with a 1-space border and flood-fill from `(0, 0)`.\nEvery space the water reaches is \"outside\".\nEach dry pocket of spaces left inside is a minimal closed room!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4yd6kzud24",
+      "cid": "bafyreifdkxqtcj2ottokizn276mc5elwaflyv45piswtiqytpnhmhc2d5m",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4yd6kzud24",
+      "text": "🧱 ELI5 Step 2 (8-Neighbor Walls \u0026 Corner Healing):\n\nWalk the 8-neighbors of a room's dry spaces to collect its wall cells (`bnd_stamp`).\nDid a `+` T-junction belong to a neighbor's wall? If it only has horizontal neighbors in THIS room's wall, it heals to `-` (or `|` for vertical)!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4yd6xp3l2t",
+      "cid": "bafyreib3ir2zgk5xnxkmj65jhs3m54zd3ya43dfmqvqkeqe5uzu4fitqbi",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4yd6xp3l2t",
+      "text": "✅ Verified in C++20 across nested donuts, interlocking L-rooms \u0026 classic grids!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/2kyu/break-the-pieces/solution.cpp\nRepo: https://github.com/8b-is/space-bender\n\n#CPP #ASCII #Codewars #ELI5"
+    }
+  ]
+}
