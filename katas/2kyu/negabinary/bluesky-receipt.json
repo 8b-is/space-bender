@@ -1,0 +1,38 @@
+{
+  "kataSlug": "negabinary",
+  "tier": "2kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-30T21:15:14Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4p7hdad22w",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4p7hdad22w",
+      "cid": "bafyreih4u4flk6fafezd2ltiubhmq3dfihhnju7oqbejgtpwyhbovrx5ae",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4p7hdad22w",
+      "text": "➖2️⃣ ELI5 Kata · NegaBinary (λ-Calculus, 2 kyu)\n\nIn base -2 (used in 1950s Polish BINEG computers!), every bit multiplies by -2 (`E x = -2x`, `O x = 1 - 2x`), representing + and - numbers with NO sign bit!\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/2kyu/negabinary"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4p7hlbl62r",
+      "cid": "bafyreicrk6tbxr2pp3oev4fr6y7652dn2oixyvynrchnkygkt4oev5sog4",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4p7hlbl62r",
+      "text": "🪞 ELI5 Step 1 (1-Step Sign-Flip Unrolling):\n\nBecause multiplying by -2 flips the sign at every bit:\n• `pred (E x) = O (succ x)` \u0026 `pred (O x) = mkE x`\n• `lt0 n` is just `gt0` of the tail!\n• `hlf n = n Zero neg neg` (floor ÷2 in 1 line)!\nZero mutual-recursion forward refs needed!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4p7hu4h62k",
+      "cid": "bafyreifqx54wgrnod7ecjs7lwiaytjtst7ciapw4gimbd5b5nq62eqpvve",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4p7hu4h62k",
+      "text": "➗ ELI5 Step 2 (BinaryScott Bridge \u0026 Deferred `()`):\n\nIn base -2, `mul` needs no subtraction (`(1-2x)n = n + E(x*n)`).\nFor `div`, `mod`, `gcd`, `lcm`, we bridge `|m|, |n|` in O(log n) to unsigned `BinaryScott` long division and wrap error `()` in `\\_.()`!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz4p7i4dz32q",
+      "cid": "bafyreifiugnnwdrzxdsjxad7peq3kf6c2zo7uxwuzmpdis54yopoqj4rfy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz4p7i4dz32q",
+      "text": "✅ All 47 exports \u0026 49 test suites verified in ~730 ms (vs 5s limit)!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/2kyu/negabinary/solution.lc\nRepo: https://github.com/8b-is/space-bender\n\n#LambdaCalculus #Codewars #ELI5"
+    }
+  ]
+}

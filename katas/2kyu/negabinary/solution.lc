@@ -1,0 +1,123 @@
+# Boolean : Boolean -> z -> z -> z
+True  = \ t _f . t
+False = \ _t f . f
+if    = \ b . b
+not   = \ b t f . b f t
+xor   = \ a b . a (not b) b
+
+# Ordering : Ordering -> z -> z -> z -> z
+LT    = \ lt _eq _gt . lt
+EQ    = \ _lt eq _gt . eq
+GT    = \ _lt _eq gt . gt
+order = \ o . o
+
+# NegaBinary = Zero | Even NegaBinary | Odd NegaBinary
+Zero   = \ z _e _o . z
+E      = \ x _z e _o . e x
+O      = \ x _z _e o . o x
+One    = O Zero
+NegOne = O One
+mkE    = \ x . x Zero (\ _ . E x) (\ _ . E x)
+
+# succ, pred : Number -> Number
+succ = \ n . n One (\ x . O x) (\ x . mkE (x NegOne (\ y . O (succ y)) (\ y . mkE y)))
+pred = \ n . n NegOne (\ x . O (succ x)) (\ x . mkE x)
+
+# zero, not-zero : Number -> Boolean
+zero     = \ n . n True (\ _ . False) (\ _ . False)
+not-zero = \ n . n False (\ _ . True) (\ _ . True)
+
+# eq, ne : Number -> Number -> Boolean
+eq = \ m n . m (zero n) (\ x . n False (\ y . eq x y) (\ _ . False)) (\ x . n False (\ _ . False) (\ y . eq x y))
+ne = \ m n . not (eq m n)
+
+# lt0, le0, ge0, gt0 : Number -> Boolean
+gt0 = \ n . n False (\ x . x False gt0 gt0) (\ x . not (gt0 x))
+lt0 = \ n . n False gt0 gt0
+le0 = \ n . not (gt0 n)
+ge0 = \ n . not (lt0 n)
+
+# compare : Number -> Number -> Ordering
+compare = \ m n . m (n EQ (\ y . gt0 y GT LT) (\ y . gt0 y GT LT)) (\ x . n (gt0 x LT GT) (\ y . compare x y GT EQ LT) (\ y . compare x y GT LT LT)) (\ x . n (gt0 x LT GT) (\ y . compare x y GT GT LT) (\ y . compare x y GT EQ LT))
+
+# lt, le, ge, gt : Number -> Number -> Boolean
+lt = \ m n . compare m n True False False
+le = \ m n . compare m n True True False
+ge = \ m n . compare m n False True True
+gt = \ m n . compare m n False False True
+
+# min, max : Number -> Number -> Number
+min = \ m n . compare m n m m n
+max = \ m n . compare m n n m m
+
+# neg, abs, sign, dbl, hlf : Number -> Number
+neg  = \ n . n Zero (\ x . E (neg x)) (\ x . O (x One (\ y . O (neg y)) (\ y . mkE (neg y))))
+abs  = \ n . lt0 n (neg n) n
+sign = \ n . n Zero (\ x . gt0 x NegOne One) (\ x . gt0 x NegOne One)
+dbl  = \ n . mkE (neg n)
+hlf  = \ n . n Zero neg neg
+
+# add, mul, sub : Number -> Number -> Number
+add  = \ m n . m n (\ x . n m (\ y . mkE (add x y)) (\ y . O (add x y))) (\ x . n m (\ y . O (add x y)) (\ y . mkE (pred (add x y))))
+sub  = \ m n . add m (neg n)
+mul1 = \ m n . m Zero (\ x . mkE (mul1 x n)) (\ x . add n (mkE (mul1 x n)))
+mul  = \ m n . n Zero (\ _ . mul1 m n) (\ _ . mul1 m n)
+
+# BinaryScott helpers & conversions
+succ-bs = \ n . n One (\ x . O x) (\ x . E (succ-bs x))
+pred-bs = \ n . n Zero (\ x . O (pred-bs x)) (\ x . mkE x)
+fbs     = \ b . b Zero (\ x . E (x Zero (\ y . E (fbs y)) (\ y . O (fbs (succ-bs y))))) (\ x . O (x Zero (\ y . E (fbs y)) (\ y . O (fbs (succ-bs y)))))
+fbsn    = \ b . b Zero (\ x . E (fbs x)) (\ x . O (fbs (succ-bs x)))
+tbsPos  = \ n . n Zero (\ x . E (x Zero (\ y . E (tbsPos y)) (\ y . O (tbsPos (pred y))))) (\ x . O (x Zero (\ y . E (tbsPos y)) (\ y . O (tbsPos (pred y)))))
+tbsNeg  = \ n . n Zero (\ x . E (tbsPos x)) (\ x . O (tbsPos (pred x)))
+abs-bs  = \ n . lt0 n (tbsNeg n) (tbsPos n)
+
+# from-binary-scott : Binary-Scott-Number -> Nega-Binary-Scott-Number
+from-binary-scott = fbs
+# to-binary-scott : Nega-Binary-Scott-Number -> Binary-Scott-Number
+to-binary-scott   = \ n . lt0 n (\ _ . ()) (\ _ . tbsPos n) Zero
+
+# Unsigned BinaryScott division & GCD
+le-bs     = \ x y . x True (\ a . y False (\ b . le-bs a b) (\ b . le-bs a b)) (\ a . y False (\ b . not (le-bs b a)) (\ b . le-bs a b))
+sub-bs    = \ x y . y x (\ b . x Zero (\ a . mkE (sub-bs a b)) (\ a . O (sub-bs a b))) (\ b . x Zero (\ a . O (sub-bs (pred-bs a) b)) (\ a . mkE (sub-bs a b)))
+divstep   = \ b q r . le-bs b r (\ f . f (O q) (sub-bs r b)) (\ f . f (mkE q) r)
+divmod-bs = \ a b . a (\ f . f Zero Zero) (\ x . divmod-bs x b (\ q r . divstep b q (mkE r))) (\ x . divmod-bs x b (\ q r . divstep b q (O r)))
+gcd-bs    = \ a b . b a (\ _ . gcd-bs b (divmod-bs a b (\ _q r . r))) (\ _ . gcd-bs b (divmod-bs a b (\ _q r . r)))
+
+# times : Number -> (a -> a) -> (a -> a)
+times-bs = \ b f x . b x (\ y . times-bs y (\ z . f (f z)) x) (\ y . times-bs y (\ z . f (f z)) (f x))
+times    = \ n . lt0 n (\ _ . ()) (\ _ . times-bs (tbsPos n)) Zero
+
+# pow, div, mod, gcd, lcm : Number -> Number -> Number
+pow-bs = \ m b . b One (\ y . pow-bs (mul m m) y) (\ y . y m (\ _ . mul m (pow-bs (mul m m) y)) (\ _ . mul m (pow-bs (mul m m) y)))
+pow    = \ m n . lt0 n (\ _ . ()) (\ _ . n One (\ _ . pow-bs m (tbsPos n)) (\ _ . pow-bs m (tbsPos n))) Zero
+div    = \ m n . zero n (\ _ . ()) (\ _ . divmod-bs (abs-bs m) (abs-bs n) (\ q r . xor (lt0 m) (lt0 n) (r (fbsn q) (\ _ . fbsn (succ-bs q)) (\ _ . fbsn (succ-bs q))) (fbs q))) Zero
+mod    = \ m n . zero n (\ _ . ()) (\ _ . divmod-bs (abs-bs m) (abs-bs n) (\ _q r . xor (lt0 m) (lt0 n) (r Zero (\ _ . lt0 n (fbsn (sub-bs (abs-bs n) r)) (fbs (sub-bs (abs-bs n) r))) (\ _ . lt0 n (fbsn (sub-bs (abs-bs n) r)) (fbs (sub-bs (abs-bs n) r)))) (lt0 n (fbsn r) (fbs r)))) Zero
+gcd    = \ m n . fbs (gcd-bs (abs-bs m) (abs-bs n))
+lcm2   = \ a b . mul (fbs (divmod-bs a (gcd-bs a b) (\ q _r . q))) (fbs b)
+lcm1   = \ m n . n Zero (\ _ . lcm2 (abs-bs m) (abs-bs n)) (\ _ . lcm2 (abs-bs m) (abs-bs n))
+lcm    = \ m n . m Zero (\ _ . lcm1 m n) (\ _ . lcm1 m n)
+
+# bit-and, bit-or, bit-xor : Number -> Number -> Number
+bit-and = \ m n . m Zero (\ x . n Zero (\ y . mkE (bit-and x y)) (\ y . mkE (bit-and x y))) (\ x . n Zero (\ y . mkE (bit-and x y)) (\ y . O (bit-and x y)))
+bit-or  = \ m n . m n (\ x . n m (\ y . mkE (bit-or x y)) (\ y . O (bit-or x y))) (\ x . n m (\ y . O (bit-or x y)) (\ y . O (bit-or x y)))
+bit-xor = \ m n . m n (\ x . n m (\ y . mkE (bit-xor x y)) (\ y . O (bit-xor x y))) (\ x . n m (\ y . O (bit-xor x y)) (\ y . mkE (bit-xor x y)))
+
+# set-bit, clear-bit, invert-bit : Number ( index ) -> Number ( operand ) -> Number
+set-bit    = \ i n . zero i (n One (\ x . O x) (\ _ . n)) (n (E (set-bit (pred i) Zero)) (\ x . E (set-bit (pred i) x)) (\ x . O (set-bit (pred i) x)))
+clear-bit  = \ i n . n Zero (\ x . zero i n (mkE (clear-bit (pred i) x))) (\ x . zero i (mkE x) (O (clear-bit (pred i) x)))
+invert-bit = \ i n . zero i (n One (\ x . O x) (\ x . mkE x)) (n (E (invert-bit (pred i) Zero)) (\ x . mkE (invert-bit (pred i) x)) (\ x . O (invert-bit (pred i) x)))
+
+# test-bit : Number ( index ) -> Number ( operand ) -> Boolean
+test-bit = \ i n . n False (\ x . zero i False (test-bit (pred i) x)) (\ x . zero i True (test-bit (pred i) x))
+
+# bit : Number ( index ) -> Number
+bit = \ i . zero i One (E (bit (pred i)))
+
+# pop-count, bit-clz : Number -> Number
+pop-count = \ n . n Zero (\ x . pop-count x) (\ x . succ (pop-count x))
+bit-clz   = \ n . n Zero (\ x . succ (bit-clz x)) (\ _ . Zero)
+
+# even, odd : Number -> Boolean
+even = \ n . n True (\ _ . True) (\ _ . False)
+odd  = \ n . n False (\ _ . False) (\ _ . True)

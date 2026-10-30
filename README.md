@@ -27,6 +27,7 @@ from first principles and verified before being recorded here.
 | [Prime Streaming (NC-17)](katas/2kyu/prime-streaming) | `solution.py` | Segmented sieve, C-level bytearray + regex |
 | [Divisible by 0b111 (7)](katas/2kyu/divisible-by-7) | `solution.py` | 7-state DFA → state elimination → regex |
 | [Church Numerals - Prefix is Overrated (All Operations)](katas/2kyu/church-infix-all-ops) | `solution.lc` | Triple-role `d = \p. p A` + unified `U_x` continuation dispatch |
+| [NegaBinary (λ Calculus)](katas/2kyu/negabinary) | `solution.lc` | Base $-2$ Scott encoding + 1-step sign-flip unrolling + BinaryScott `divmod` (~0.73s) |
 
 ### 3 kyu
 

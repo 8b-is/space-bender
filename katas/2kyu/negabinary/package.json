@@ -1,0 +1,8 @@
+{
+  "name": "negabinary-test",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@codewars/lambda-calculus": "^1.1.2"
+  }
+}
