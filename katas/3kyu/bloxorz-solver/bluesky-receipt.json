@@ -1,0 +1,38 @@
+{
+  "kataSlug": "bloxorz-solver",
+  "tier": "3kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-31T03:46:07Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5f2g3axn2t",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5f2g3axn2t",
+      "cid": "bafyreifvps3fee6bshsem2a6wxem7vdfeshxb4yq7dc37x67gxbgiezeem",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5f2g3axn2t",
+      "text": "🧱 ELI5 Kata · Bloxorz Solver (Haskell + ASM, 3 kyu)\n\nHow do you roll a 1×1×2 block across a floating island from B into the square hole X in the fewest moves without tipping over the edge?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/3kyu/bloxorz-solver"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5f2gdsra2r",
+      "cid": "bafyreicr6rflnpijom5tq7nq2zb65rtoqby4xr4kxo7lfjwi7rboxy57mi",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5f2gdsra2r",
+      "text": "🎲 ELI5 Step 1 (3 Poses of a Domino Block):\n\nAt any moment the block has 1 of 3 poses:\n• `Upright r c`: standing tall on 1 tile\n• `Horz r c`: lying flat across `(r, c)` \u0026 `(r, c+1)`\n• `Vert r c`: lying flat across `(r, c)` \u0026 `(r+1, c)`\nTipping upright shifts 2 tiles; rolling flat shifts 1!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5f2gm74i2p",
+      "cid": "bafyreibpyasubhjxrdfnam32bdyarnlv346dwahx3mkduzj5p42k23t6i4",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5f2gm74i2p",
+      "text": "⚡ ELI5 Step 2 (Haskell `Seq` BFS + 12-Bit Assembly Moat):\n\nIn Haskell (`solution.hs`), `Data.Sequence` BFS finds the shortest path.\nIn x86-64 NASM \u0026 ARM64 (`solution.asm`, `solution_arm64.s`), a 32×32 zero-moat grid packs `(orient \u003c\u003c 10) | idx` into 12 bits with branchless LUT rolls!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5f2gwbpe2a",
+      "cid": "bafyreig74bxeyonvhbssvzzl5amuxv6hxoe5dm7wvrsva3ctzfzc26mnhy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5f2gwbpe2a",
+      "text": "✅ Verified in Haskell (GHC) + x86-64 NASM + Apple Silicon ARM64!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/3kyu/bloxorz-solver/solution.hs\nRepo: https://github.com/8b-is/space-bender\n\n#Haskell #Assembly #Codewars #ELI5"
+    }
+  ]
+}

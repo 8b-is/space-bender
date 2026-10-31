@@ -38,6 +38,7 @@ from first principles and verified before being recorded here.
 |------|----------|----------|
 | [Loopover](katas/3kyu/loopover) | `solution.py` | Local 3-cycles (swap_adj, three_slip) + parity |
 | [Assembling a Circular Genome](katas/3kyu/circular-genome) | `solution.py` | Greedy suffix-prefix merge + circular wrap |
+| [Bloxorz Solver (Haskell + NASM + ARM64)](katas/3kyu/bloxorz-solver) | `solution.hs`, `solution.asm`, `solution_arm64.s` | `Data.Sequence` 3-pose BFS + branchless 12-bit `(orient << 10) \| idx` $32\times 32$ zero-moat LUT assembly |
 
 ### 4 kyu
 
