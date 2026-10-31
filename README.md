@@ -45,6 +45,7 @@ from first principles and verified before being recorded here.
 | Kata | Solution | Approach |
 |------|----------|----------|
 | [Hamming Numbers (NASM)](katas/4kyu/hamming-numbers) | `solution.asm` | 3-pointer DP in `.bss` (`cmovb` + `lea *3/*5`) + 6-insn $O(1)$ lookup |
+| [Range Extraction (Haskell + Julia + NASM + ARM64)](katas/4kyu/range-extraction) | `solution.hs`, `solution.jl`, `solution.asm`, `solution_arm64.s` | Single-pass `(lo, hi)` interval coalescing (`hi + 1 == x`) + `hi - lo >= 2` threshold + stack-buffered `idiv`/`udiv` ITOA |
 
 ### 6 kyu
 

@@ -1,0 +1,38 @@
+{
+  "kataSlug": "range-extraction",
+  "tier": "4kyu",
+  "handle": "0xp3t3rl.bsky.social",
+  "did": "did:plc:dqqoktofp3jzbtcempy257hj",
+  "createdAt": "2026-10-31T05:40:59Z",
+  "rootUrl": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5lhsrgna2p",
+  "posts": [
+    {
+      "index": 1,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5lhsrgna2p",
+      "cid": "bafyreieuwxympvnhnpdrcvej4aina45t3iveos4cdaynqb3cwdhoy3a26u",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5lhsrgna2p",
+      "text": "📏 ELI5 Kata · Range Extraction (Haskell + Julia + ASM, 4 kyu)\n\nHow do we compress `[-6,-3,-2,-1,0,1,3,4,5]` into `\"-6,-3-1,3-5\"` where only runs of 3+ consecutive integers become `a-b`?\n\nhttps://github.com/8b-is/space-bender/tree/main/katas/4kyu/range-extraction"
+    },
+    {
+      "index": 2,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5lht2xjx2r",
+      "cid": "bafyreiepgz5ltylrzajiqlg6bitqdwqod4zvmkmaqw24lpekrtxrthcjtu",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5lht2xjx2r",
+      "text": "🔍 ELI5 Step 1 (The 3-Number Rule):\n\nWalk consecutive neighbors `y == prev + 1` from `a` to `b`:\n• Span `b - a \u003e= 2` (3+ numbers): collapse to `\"a-b\"`\n• Span `b - a == 1` (just 2 numbers): keep separate `\"a,b\"`\n• Span `0` (single number): emit `\"a\"`!"
+    },
+    {
+      "index": 3,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5lhteehv2j",
+      "cid": "bafyreibt4jh4ate774moxtie4rjvexwlamlvf4n2ma44wv5pzyj6o2swmq",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5lhteehv2j",
+      "text": "⚡ ELI5 Step 2 (Haskell + Julia + Zero-Libc Assembly):\n\n• Haskell (`solution.hs`): `spanRun` + `intercalate \",\"`\n• Julia (`solution.jl`): two-pointer run scanner\n• x86-64 NASM \u0026 ARM64 (`solution.asm`, `solution_arm64.s`): pure register `div`/`udiv` ASCII digit streamer!"
+    },
+    {
+      "index": 4,
+      "uri": "at://did:plc:dqqoktofp3jzbtcempy257hj/app.bsky.feed.post/3mz5lhtnos62t",
+      "cid": "bafyreiedilfe5ctsfn6bfq6z3fie33zjuq64tgahcr7onurfptmax6h5uy",
+      "url": "https://bsky.app/profile/0xp3t3rl.bsky.social/post/3mz5lhtnos62t",
+      "text": "✅ Verified across Haskell (GHC 9.14), Julia 1.13, x86-64 NASM \u0026 ARM64!\n\nhttps://github.com/8b-is/space-bender/blob/main/katas/4kyu/range-extraction/solution.jl\nRepo: https://github.com/8b-is/space-bender\n\n#Haskell #JuliaLang #Assembly #Codewars #ELI5"
+    }
+  ]
+}
