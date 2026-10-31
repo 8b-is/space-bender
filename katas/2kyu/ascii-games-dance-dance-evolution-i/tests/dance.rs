@@ -1,6 +1,22 @@
 use ascii_games_dance_dance_evolution_i::dance;
 use std::collections::HashSet;
+use std::ffi::{CStr, CString};
+use std::os::raw::c_char;
 use std::time::Instant;
+
+extern "C" {
+    fn dance_asm(map_utf8: *const c_char, out_utf8: *mut c_char) -> usize;
+}
+
+fn call_dance_asm(map: &str) -> String {
+    let c_map = CString::new(map).unwrap();
+    let mut buf = vec![0u8; 512];
+    let _len = unsafe { dance_asm(c_map.as_ptr(), buf.as_mut_ptr() as *mut c_char) };
+    unsafe { CStr::from_ptr(buf.as_ptr() as *const c_char) }
+        .to_str()
+        .unwrap()
+        .to_string()
+}
 
 const ARROWS: [char; 8] = ['←', '↖', '↑', '↗', '→', '↘', '↓', '↙'];
 const DR: [isize; 8] = [0, -1, -1, -1, 0, 1, 1, 1];
@@ -203,9 +219,12 @@ fn test_100_random_5x5_mazes() {
         let map = lines.join("\n");
         let ans = dance(&map);
         let len = verify_cycle(&map, &ans).expect("Returned invalid cycle");
+        let ans_asm = call_dance_asm(&map);
+        let len_asm = verify_cycle(&map, &ans_asm).expect("ASM returned invalid cycle");
         let expected = reference_longest_len(&map);
-        assert_eq!(len, expected, "Suboptimal cycle on map:\n{}", map);
+        assert_eq!(len, expected, "Suboptimal Rust cycle on map:\n{}", map);
+        assert_eq!(len_asm, expected, "Suboptimal ASM cycle on map:\n{}", map);
     }
     let elapsed = t0.elapsed();
-    println!("Verified 100 random 5x5 mazes in {:?}", elapsed);
+    println!("Verified 100 random 5x5 mazes (Rust + Assembly) in {:?}", elapsed);
 }
