@@ -39,13 +39,21 @@ from first principles and verified before being recorded here.
 | [Loopover](katas/3kyu/loopover) | `solution.py` | Local 3-cycles (swap_adj, three_slip) + parity |
 | [Assembling a Circular Genome](katas/3kyu/circular-genome) | `solution.py` | Greedy suffix-prefix merge + circular wrap |
 | [Bloxorz Solver (Haskell + NASM + ARM64)](katas/3kyu/bloxorz-solver) | `solution.hs`, `solution.asm`, `solution_arm64.s` | `Data.Sequence` 3-pose BFS + branchless 12-bit `(orient << 10) \| idx` $32\times 32$ zero-moat LUT assembly |
+| [Ternary Matrix SIMD Contraction (Rust + ARM64 NEON + NASM + Prolog)](katas/3kyu/ternary-matrix-simd-gemm) | `solution.rs`, `solution_arm64.s`, `solution.asm`, `solution.pl` | SPQT Base-243 ($5\text{ trits/B}$) + zero-multiplier `eor/sub/and` + `sadalp` 8-lane NEON SIMD + exact `p/q` `TGEMM` + Kleene Strong-3 `NAND` semiring |
 
 ### 4 kyu
 
 | Kata | Solution | Approach |
 |------|----------|----------|
-| [Hamming Numbers (NASM)](katas/4kyu/hamming-numbers) | `solution.asm` | 3-pointer DP in `.bss` (`cmovb` + `lea *3/*5`) + 6-insn $O(1)$ lookup |
-| [Range Extraction (Haskell + Julia + NASM + ARM64)](katas/4kyu/range-extraction) | `solution.hs`, `solution.jl`, `solution.asm`, `solution_arm64.s` | Single-pass `(lo, hi)` interval coalescing (`hi + 1 == x`) + `hi - lo >= 2` threshold + stack-buffered `idiv`/`udiv` ITOA |
+| [Hamming Numbers (NASM + Prolog)](katas/4kyu/hamming-numbers) | `solution.asm`, `solution.pl` | 3-pointer DP in `.bss` (`cmovb` + `lea *3/*5`) + 6-insn $O(1)$ lookup + SWI-Prolog `functor(Table, h, N)` shift-add DP |
+| [Range Extraction (Haskell + Julia + NASM + ARM64 + Prolog)](katas/4kyu/range-extraction) | `solution.hs`, `solution.jl`, `solution.asm`, `solution_arm64.s`, `solution.pl` | Single-pass `(lo, hi)` interval coalescing (`hi + 1 == x`) + `hi - lo >= 2` threshold + stack-buffered `idiv`/`udiv` ITOA |
+
+### 5 kyu
+
+| Kata | Solution | Approach |
+|------|----------|----------|
+| [Beeramid (Prolog)](katas/5kyu/beeramid) | `solution.pl` | Deterministic tail-recursive `(-> ;)` accumulator + $O(1)$ cube-root pyramidal sandwich $n^3 < 3P_n < (n+1)^3$ |
+| [CoCoA VBF & EU868 Duty-Cycle Gate P1..P6 (Prolog)](katas/5kyu/cocoa-vbf-duty-cycle-gate) | `solution.pl` | Pure shift-add CoCoA Variable Backoff Factor (`3x`, `2x`, `1.3x` Q8 & 3-tap shift) + OMNI P1..P6 Gate-Before-Mutate |
 
 ### 6 kyu
 
