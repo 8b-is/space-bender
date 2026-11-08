@@ -1,0 +1,21 @@
+when:
+  - event: [push, pull_request, manual, cron]
+    branch: [main]
+  - event: tag
+    ref: refs/tags/v*
+
+steps:
+  chore-polish:
+    image: ubuntu:24.04
+    commands:
+      - apt-get update && apt-get install -y python3 swi-prolog git
+      - ./scripts/codeberg_ci_agent.sh --chore-polish
+
+  release-publish:
+    image: ubuntu:24.04
+    when:
+      event: tag
+      ref: refs/tags/v*
+    commands:
+      - apt-get update && apt-get install -y python3 swi-prolog git
+      - ./scripts/codeberg_ci_agent.sh --release
