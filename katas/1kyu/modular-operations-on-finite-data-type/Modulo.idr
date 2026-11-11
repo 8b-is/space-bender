@@ -20,4 +20,4 @@ subt n m = add n (negate m)
 
 mult : Fin k -> Fin k -> Fin k
 mult FZ _ = FZ
-mult (FS n) m = add m (mult n (weaken m))
+mult (FS n) m = add m (mult (weaken n) m)
