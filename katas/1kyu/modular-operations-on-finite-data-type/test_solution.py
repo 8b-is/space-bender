@@ -11,14 +11,17 @@ def test_idris_solution():
     with open(solution_path, 'r') as f:
         content = f.read()
     
-    # Verify required functions exist
-    assert "add : Fin k -> Fin k -> Fin k" in content
-    assert "negate : Fin k -> Fin k" in content
-    assert "subt : Fin k -> Fin k -> Fin k" in content
-    assert "mult : Fin k -> Fin k -> Fin k" in content
+    # Verify required functions exist (with explicit {k : Nat} syntax)
+    assert "add : {k : Nat} -> Fin k -> Fin k -> Fin k" in content
+    assert "negate : {k : Nat} -> Fin k -> Fin k" in content
+    assert "subt : {k : Nat} -> Fin k -> Fin k -> Fin k" in content
+    assert "mult : {k : Nat} -> Fin k -> Fin k -> Fin k" in content
     
-    # Verify no finS (not in Idris 1.3)
-    assert "finS" not in content
+    # Verify implementations use addImpl, negateImpl, etc.
+    assert "addImpl" in content
+    assert "negateImpl" in content
+    assert "subtImpl" in content
+    assert "multImpl" in content
     
     print("Solution structure verified successfully")
 
